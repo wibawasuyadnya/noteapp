@@ -1,0 +1,16 @@
+<div #container class="note-card-container group relative min-h-full mb-6 bg-white shadow-md hover:shadow-lg hover:cursor-pointer ease-out transition-shadow duration-200 rounded-md ">
+
+    <div class="note-card-content p-6">
+        <h1 class="text-xl font-medium bg-gradient-to-r from-blue-700 to-sky-600 text-transparent bg-clip-text ">Test Card Content Heading</h1>
+        <div class="relative max-h-[80px] overflow-hidden">
+            <p>This is body contents</p>
+            
+            <div class="fade-out-truncation bottom-0 h-2/4 w-full absolute bg-gradient-to-b from-red-500 to-pink-500"></div>
+        </div>
+    </div>
+
+    <div class="absolute top-3 right-3 transition-opacity duration-200 ease-out opacity-0 hover:brightness-150 group-hover:opacity-100 group-hover:delay-300 ">
+        <fa-icon class="red-icon" [icon]="faXmark" [styles]="{color: 'red'}" size="lg"></fa-icon>
+    </div>
+
+</div>
