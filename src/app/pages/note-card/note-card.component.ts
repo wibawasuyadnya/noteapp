@@ -9,7 +9,8 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class NoteCardComponent implements AfterViewInit{
-
+  
+  faXmark = faXmark;
   @Input() title: string;
   @Input() body: string;
   @ViewChild('truncator', { static: true }) truncator: ElementRef<HTMLElement>;
@@ -17,7 +18,7 @@ export class NoteCardComponent implements AfterViewInit{
 
   constructor(private renderer: Renderer2) {
    }
-
+   
    ngAfterViewInit() {
     // work out if there is a text overflow and if not, then hide the truncator
 
