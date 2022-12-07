@@ -1,0 +1,11 @@
+input.ng-invalid.ng-touched, textarea.ng-invalid {
+    border: 1px solid red;
+    box-shadow: inset 0px 0px 10px 0px red;
+}
+input.ng-invalid.ng-touched:focus {
+    box-shadow: inset 0px 0px 7px 0px red;
+}
+
+.button disabled { 
+    background: red !important;
+ }
