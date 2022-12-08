@@ -2,26 +2,26 @@
 
     <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)" class="flex flex-col space-y-6">
 
-        <div class="field ">
+        <div class="field max-[600px]:w-4/5 mx-auto">
             <div class="w-full rounded-tr-lg rounded-tl-lg bg-gradient-to-r from-blue-700 to-sky-600 flex-row px-4 py-1">
                 <label class="label text-lg tracking-wide text-white font-semibold ">Title</label>
             </div>
             <div class="control">
-                <input placeholder="Add Title ..." name="title" [ngModel]="note.title" required type="text" class="input w-full h-10 rounded-bl-lg rounded-br-lg p-2 bg-gray-200">
+                <input placeholder="Add Title ..." name="title" [ngModel]="note.title" required type="text" class="input w-full h-10 rounded-bl-lg rounded-br-lg p-2 bg-gray-100">
             </div>
         </div>
 
 
-        <div class="field ">
+        <div class="field max-[600px]:w-4/5 mx-auto">
             <div class="w-full rounded-tr-lg rounded-tl-lg bg-gradient-to-r from-blue-700 to-sky-600 flex-row px-4 py-1">
                 <label class="label text-lg tracking-wide text-white font-semibold ">Body</label>
             </div>
             <div class="control">
-                <textarea placeholder="Type Note here ..."  name="body" [ngModel]="note.body"  class="textarea rounded-bl-lg rounded-br-lg w-full bg-gray-200 p-2"></textarea>
+                <textarea placeholder="Type Note here ..."  name="body" [ngModel]="note.body"  class="textarea rounded-bl-lg rounded-br-lg w-full bg-gray-100 p-2"></textarea>
             </div>
         </div>
 
-        <div class=" grouped-field h-fit py-5 pulled-right relative">
+        <div class=" grouped-field h-fit py-5 pulled-right max-[600px]:w-4/5 mx-auto relative">
             <div class="control">
                 <button [disabled]="!noteForm.valid" type="submit" class="button disabled:cursor-not-allowed	 disabled:opacity-30 disabled:bg-red-500 is-success float-right ml-3 transition-transform duration-200 ease-in-out hover:scale-110 bg-sky-600 rounded-lg text-white px-5 py-2"> Save </button>
             </div> 
