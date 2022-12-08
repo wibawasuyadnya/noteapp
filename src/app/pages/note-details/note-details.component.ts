@@ -18,6 +18,8 @@ export class NoteDetailsComponent implements OnInit {
     constructor( private notesServices: NotesService, private router: Router, private route : ActivatedRoute ){  }
 
     ngOnInit() {
+      
+      this.note = new Note();
 
       this.route.params.subscribe((params: Params) => {
         if(params['id']) {
@@ -29,17 +31,19 @@ export class NoteDetailsComponent implements OnInit {
         }
       })
 
-      this.note = new Note();
+
     }
 
     onSubmit(form: NgForm) {
 
       if(this.new) {
         this.notesServices.add(form.value);
-        this.router.navigateByUrl('/');
       } else {
         this.notesServices.update(this.noteId, form.value.title, form.value.body );
       }
+      
+      this.router.navigateByUrl('/');
+
     } 
 
     cancel(){
