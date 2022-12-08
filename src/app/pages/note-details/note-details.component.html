@@ -2,7 +2,7 @@
 
     <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)" class="flex flex-col space-y-6">
 
-        <div class="field max-[600px]:w-4/5 mx-auto">
+        <div class="field max-[600px]:w-4/5 max-[600px]:mx-auto">
             <div class="w-full rounded-tr-lg rounded-tl-lg bg-gradient-to-r from-blue-700 to-sky-600 flex-row px-4 py-1">
                 <label class="label text-lg tracking-wide text-white font-semibold ">Title</label>
             </div>
@@ -12,7 +12,7 @@
         </div>
 
 
-        <div class="field max-[600px]:w-4/5 mx-auto">
+        <div class="field max-[600px]:w-4/5 max-[600px]:mx-auto">
             <div class="w-full rounded-tr-lg rounded-tl-lg bg-gradient-to-r from-blue-700 to-sky-600 flex-row px-4 py-1">
                 <label class="label text-lg tracking-wide text-white font-semibold ">Body</label>
             </div>
@@ -21,9 +21,9 @@
             </div>
         </div>
 
-        <div class=" grouped-field h-fit py-5 pulled-right max-[600px]:w-4/5 mx-auto relative">
+        <div class=" grouped-field h-fit py-5 pulled-right max-[600px]:w-4/5 max-[600px]:mx-auto relative">
             <div class="control">
-                <button [disabled]="!noteForm.valid" type="submit" class="button disabled:cursor-not-allowed	 disabled:opacity-30 disabled:bg-red-500 is-success float-right ml-3 transition-transform duration-200 ease-in-out hover:scale-110 bg-sky-600 rounded-lg text-white px-5 py-2"> Save </button>
+                <button [disabled]="!noteForm.valid" type="submit" class="button disabled:cursor-not-allowed disabled:opacity-30 disabled:bg-red-500 is-success float-right ml-3 transition-transform duration-200 ease-in-out hover:scale-110 bg-sky-600 rounded-lg text-white px-5 py-2"> Save </button>
             </div> 
             <div class="control">
                 <button type="button" (click)="cancel()" class="button float-right is-text ml-3 transition-transform duration-200 ease-in-out hover:scale-110 bg-gray-400 rounded-lg text-white px-5 py-2"> Cancel </button>
