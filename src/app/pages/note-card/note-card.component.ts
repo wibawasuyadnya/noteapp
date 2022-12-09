@@ -1,4 +1,4 @@
-import { Component, Input,  ViewChild, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input,  ViewChild, Renderer2, ElementRef, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -13,6 +13,10 @@ export class NoteCardComponent implements AfterViewInit{
   faXmark = faXmark;
   @Input() title: string;
   @Input() body: string;
+  @Input() link: string;
+
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
+
   @ViewChild('truncator', { static: true }) truncator: ElementRef<HTMLElement>;
   @ViewChild('bodyText', { static: true }) bodyText: ElementRef<HTMLElement>;
 
@@ -33,6 +37,11 @@ export class NoteCardComponent implements AfterViewInit{
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
     }
   }
+
+  onXButtonClick(){
+    this.deleteEvent.emit();
+  }
+
 }
 
 

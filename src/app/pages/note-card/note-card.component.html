@@ -1,5 +1,6 @@
 <div #container class="note-card-container group relative min-h-full bg-white shadow-md hover:shadow-lg hover:cursor-pointer ease-out transition-shadow duration-200 rounded-md ">
-
+    
+    <a [routerLink]="link">
     <div class="note-card-content p-6">
         <h1 class="text-xl font-medium bg-gradient-to-r from-blue-700 to-sky-600 text-transparent bg-clip-text ">{{ title }}</h1>
         <div #bodyText class="relative max-h-[80px] overflow-hidden">
@@ -7,8 +8,9 @@
             <div #truncator class="fade-out-truncation bottom-0 h-[50%] w-full absolute"></div>
         </div>
     </div>
+    </a>
 
-    <div class="absolute top-3 right-3 transition-opacity duration-200 ease-out opacity-0 hover:brightness-150 group-hover:opacity-100 group-hover:delay-300 ">
+    <div (click)="onXButtonClick()" class="absolute top-3 right-3 transition-opacity duration-200 ease-out opacity-0 hover:brightness-150 group-hover:opacity-100 group-hover:delay-300 ">
        <fa-icon class="red-icon" [icon]="faXmark" [styles]="{color: 'red'}" size="lg"></fa-icon>
     </div>
 

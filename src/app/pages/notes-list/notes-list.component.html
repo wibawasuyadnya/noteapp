@@ -16,7 +16,8 @@
         <app-note-card 
           class="block mb-4" 
           *ngFor="let note of notes; index as i "
-          [routerLink]="[i]" 
+          [link]="i.toString()" 
+          (delete)="deleteNote(i)"
           [title]="note.title" 
           [body]="note.body">
         </app-note-card>
