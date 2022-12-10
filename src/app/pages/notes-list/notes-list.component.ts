@@ -1,5 +1,5 @@
 import { transition, trigger, style, animate, query, stagger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
 
@@ -77,6 +77,9 @@ export class NotesListComponent implements OnInit {
   notes: Note[] = new Array<Note>();
   filteredNotes : Note[] = new Array<Note>();
 
+  @ViewChild('filterInput') filterInputElRef: ElementRef<HTMLInputElement>;
+
+
   constructor(private notesService: NotesService){ }
 
   ngOnInit() {
@@ -109,21 +112,23 @@ export class NotesListComponent implements OnInit {
   }
 
   removeDuplicates(arr: Array<any>) : Array<any> {
-    let uniqueResults: Set<any> = new Set<any>;
+    let uniqueResults: Set<any> = new Set<any>();
     arr.forEach(e => uniqueResults.add(e)); 
 
     return Array.from(uniqueResults);
 
   }
-
-  relevantNotes(query: any) {
+ 
+  relevantNotes(query: string) : Array<Note> {
     query = query.toLowerCase().trim();
     let relevantNotes = this.notes.filter(note => {
-      if(note.body.toLowerCase().includes(query) || note.title.toLowerCase().includes(query)){
+      if(note.title && note.title.toLowerCase().includes(query)){
         return true;
-      } else {
-        return false;
       }
+      if(note.body && note.body.toLowerCase().includes(query)){
+        return true;
+      }
+      return false;
     })
     return relevantNotes;
   }
