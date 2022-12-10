@@ -36,6 +36,11 @@ import { NotesService } from 'src/app/shared/notes.service';
         ]),
 
         transition('* => void', [
+            //first scale up
+            animate(50, style({
+              transform: 'scale(1.05)',
+            })),
+            //second is scale down 
             
         ])
 
