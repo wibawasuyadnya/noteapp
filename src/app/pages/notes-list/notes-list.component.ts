@@ -75,11 +75,13 @@ import { NotesService } from 'src/app/shared/notes.service';
 export class NotesListComponent implements OnInit {
 
   notes: Note[] = new Array<Note>();
+  filteredNotes : Note[] = new Array<Note>();
 
   constructor(private notesService: NotesService){ }
 
   ngOnInit() {
     this.notes = this.notesService.getAll();
+    this.filteredNotes = this.notes;
   }
 
   deleteNote(id: number){
@@ -94,11 +96,16 @@ export class NotesListComponent implements OnInit {
     let terms : string[] =  query.split(' ');
     terms = this.removeDuplicates(terms);
     terms.forEach(term => {
-      let results: Note[] = this.relevantNotes(terms);
+      let results: Note[] = this.relevantNotes(term);
       //append all results to allResults array
       allResults = [...allResults, ...results];
-      
-    })
+    });
+
+    //remove the duplicates notes
+
+    let uniqueResults = this.removeDuplicates(allResults);
+    this.filteredNotes = uniqueResults;
+
   }
 
   removeDuplicates(arr: Array<any>) : Array<any> {
