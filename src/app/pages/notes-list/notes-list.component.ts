@@ -84,11 +84,19 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit() {
     this.notes = this.notesService.getAll();
-    this.filteredNotes = this.notes;
+    //this.filteredNotes = this.notesService.getAll();
+    this.filter('');
   }
 
-  deleteNote(id: number){
-    this.notesService.delete(id);
+  deleteNote(note: Note){
+    let noteId = this.notesService.getId(note);
+    this.notesService.delete(noteId);
+    this.filter(this.filterInputElRef.nativeElement.value);
+  }
+
+  generateNoteURL(note: Note){
+    let noteId = this.notesService.getId(note);
+    return noteId;
   }
 
   filter(query: string){

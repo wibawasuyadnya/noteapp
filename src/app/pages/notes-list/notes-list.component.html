@@ -19,9 +19,9 @@
         <app-note-card 
           class="block mb-4" 
           [@itemAnim]
-          *ngFor="let note of filteredNotes; index as i "
-          [link]="i.toString()" 
-          (delete)="deleteNote(i)"
+          *ngFor="let note of filteredNotes;"
+          [link]="generateNoteURL(note).toString()" 
+          (delete)="deleteNote(note)"
           [title]="note.title" 
           [body]="note.body">
         </app-note-card>
