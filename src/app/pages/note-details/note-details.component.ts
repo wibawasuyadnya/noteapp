@@ -31,7 +31,6 @@ export class NoteDetailsComponent implements OnInit {
         }
       })
 
-
     }
 
     onSubmit(form: NgForm) {
