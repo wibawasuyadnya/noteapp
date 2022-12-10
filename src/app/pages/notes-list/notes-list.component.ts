@@ -96,6 +96,8 @@ export class NotesListComponent implements OnInit {
     terms.forEach(term => {
       let results: Note[] = this.relevantNotes(terms);
       //append all results to allResults array
+      allResults = [...allResults, ...results];
+      
     })
   }
 
